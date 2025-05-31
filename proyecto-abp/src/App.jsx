@@ -73,7 +73,7 @@ function App() {
           >
             {showStats ? 'Ocultar estadísticas' : 'Mostrar estadísticas'}
         </button>
-        {showStats && <StatsPanel />}
+        {showStats && <StatsPanel products={filtered} />}
         <ProductList products={filtered} />
       </div>
     </div>

@@ -1,4 +1,4 @@
-# 🛒 Catálogo de Productos – Proyecto Integrador Evidencia 1 y 2 para la Carrera de Cs de Datos e IA
+# 🛒 Catálogo de Productos – Proyecto Integrador ABP para la Carrera de Cs de Datos e IA
 
 Aplicación desarrollada con **React + Vite**, utilizando **Tailwind CSS** para estilos y **Axios** para consumir una API externa.  
 Permite buscar productos, ver estadísticas dinámicas y visualizar los datos en tarjetas responsivas.

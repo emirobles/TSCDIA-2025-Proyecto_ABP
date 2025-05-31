@@ -36,3 +36,19 @@ También se aplicaron principios de diseño responsive y separación de componen
    `npm run dev`
 5. Abrir el navegador en el link que aparecerá por defecto:  
    `http://localhost:####`
+
+---
+
+## 🔍 Sigue el progreso del proyecto samana a semana
+
+**Semana 1**
+Implementación inicial con búsqueda y carga desde API: https://github.com/emirobles/TSCDIA-2025-Proyecto_ABP/issues/1#issuecomment-2907551974
+
+**Semana 2**
+Aplicar estilos con Tailwind y agregar modo oscuro: https://github.com/emirobles/TSCDIA-2025-Proyecto_ABP/issues/2#issuecomment-2908131329
+
+**Semana 3**
+Agregar filtros por categoría y ordenamiento por precio/rating: https://github.com/emirobles/TSCDIA-2025-Proyecto_ABP/issues/3#issuecomment-2923988573
+
+**Semana 4**
+Mostrar estadísticas de productos con filtros aplicados: https://github.com/emirobles/TSCDIA-2025-Proyecto_ABP/issues/4#issuecomment-2925008833

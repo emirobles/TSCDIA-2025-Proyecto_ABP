@@ -5,6 +5,9 @@ import SearchBar from './components/SearchBar';
 import FilterBar from './components/FilterBar';
 import ProductList from './components/ProductList';
 import StatsPanel from './components/StatsPanel';
+import CategoryBarChart from './components/CategoryBarChart';
+import PriceLineChart from './components/PriceLineChart';
+import StockPieChart from './components/StockPieChart';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -73,8 +76,17 @@ function App() {
           >
             {showStats ? 'Ocultar estadísticas' : 'Mostrar estadísticas'}
         </button>
-        {showStats && <StatsPanel products={filtered} />}
+        {showStats && (
+          <>
+          <StatsPanel products={filtered}/>
+          <CategoryBarChart products={filtered} />
+          <PriceLineChart products={filtered} />
+          <StockPieChart products={filtered} />
+          </>
+        )}
         <ProductList products={filtered} />
+        
+
       </div>
     </div>
   );

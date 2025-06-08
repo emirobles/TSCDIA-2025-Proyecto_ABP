@@ -20,7 +20,7 @@ Permite buscar productos, ver estadísticas dinámicas y visualizar los datos en
   <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" width="40" height="40"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" alt="npm" width="40" height="40"/>
   <img src="https://axios-http.com/assets/logo.svg" alt="Axios" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/recharts/recharts-site/master/public/favicon.ico" alt="Recharts" width="40" height="40"/>
+  <img src="https://avatars.githubusercontent.com/u/1640892?s=200&v=4" alt="Recharts" width="40" height="40"/>
 </p>
 
 También se aplicaron principios de diseño responsive y separación de componentes con props.
@@ -33,10 +33,16 @@ También se aplicaron principios de diseño responsive y separación de componen
 2. Posicionarse dentro de la carpeta del proyecto `proyecto-abp`.
 3. Ejecutar el siguiente comando para instalar las dependencias:  
    `npm install`
-4. Ejecutar el proyecto con el comando:  
+4. Si es la primera vez se recomienda instalar algunas depencias manualmente como las siguientes:
+   ```
+   npm install axios
+   npm install recharts
+   npm install @heroicons/react
+5. Ejecutar el proyecto con el comando:  
    `npm run dev`
-5. Abrir el navegador en el link que aparecerá por defecto:  
+6. Abrir el navegador en el link que aparecerá por defecto:  
    `http://localhost:####`
+
 
 ---
 

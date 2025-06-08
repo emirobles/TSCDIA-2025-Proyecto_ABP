@@ -20,6 +20,7 @@ Permite buscar productos, ver estadísticas dinámicas y visualizar los datos en
   <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" width="40" height="40"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" alt="npm" width="40" height="40"/>
   <img src="https://axios-http.com/assets/logo.svg" alt="Axios" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/recharts/recharts-site/master/public/favicon.ico" alt="Recharts" width="40" height="40"/>
 </p>
 
 También se aplicaron principios de diseño responsive y separación de componentes con props.
@@ -52,3 +53,6 @@ Agregar filtros por categoría y ordenamiento por precio/rating: https://github.
 
 **Semana 4**
 Mostrar estadísticas de productos con filtros aplicados: https://github.com/emirobles/TSCDIA-2025-Proyecto_ABP/issues/4#issuecomment-2925008833
+
+**Semana 5**
+Agregar gráficos de productos por categoría, precio y stock: https://github.com/emirobles/TSCDIA-2025-Proyecto_ABP/issues/5

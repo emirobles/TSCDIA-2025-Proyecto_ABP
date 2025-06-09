@@ -18,6 +18,9 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [sortOption, setSortOption] = useState('');
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 15;
+
   useEffect(() => {
     axios.get('https://dummyjson.com/products?limit=1000')
       .then((res) => setProducts(res.data.products))
@@ -40,10 +43,15 @@ function App() {
     filtered.sort((a, b) => b.rating - a.rating);
   }
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProducts = filtered.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filtered.length / itemsPerPage);
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     document.documentElement.classList.toggle('dark');
-  };
+  };  
 
   const exportToJSON = (data) => {
     const fileData = JSON.stringify(data, null, 2);
@@ -134,9 +142,24 @@ function App() {
           <StockPieChart products={filtered} />
           </>
         )}
-        <ProductList products={filtered} />
-        
-
+        <ProductList products={currentProducts} />
+        {totalPages > 1 && (
+          <div className="flex justify-center mt-6 gap-2">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentPage(i + 1)}
+                className={`px-3 py-1 rounded ${
+                  currentPage === i + 1
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-200 dark:bg-gray-700 text-black dark:text-white'
+                }`}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ function App() {
   const [sortOption, setSortOption] = useState('');
 
   useEffect(() => {
-    axios.get('https://dummyjson.com/products?limit=100')
+    axios.get('https://dummyjson.com/products?limit=1000')
       .then((res) => setProducts(res.data.products))
       .catch((err) => console.error(err));
   }, []);
@@ -45,11 +45,59 @@ function App() {
     document.documentElement.classList.toggle('dark');
   };
 
+  const exportToJSON = (data) => {
+    const fileData = JSON.stringify(data, null, 2);
+    const blob = new Blob([fileData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'productos-exportados.json';
+    link.click();
+  };
+
+  const exportToCSV = (data) => {
+    const header = Object.keys(data[0]).join(',');
+    const rows = data.map(row => Object.values(row).join(','));
+    const csvContent = [header, ...rows].join('\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'productos-exportados.csv';
+    link.click();
+  };
+
+  const [exportFormat, setExportFormat] = useState('json');
+
+  const handleExport = () => {
+    if (filtered.length === 0) return;
+    exportFormat === 'json' ? exportToJSON(filtered) : exportToCSV(filtered);
+  };
+
+
   return (
     <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
       <div className="max-w-4xl mx-auto p-6">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold">Explorador de Productos</h1>
+          <div className="mb-4 flex gap-4 items-center">
+            <select
+              value={exportFormat}
+              onChange={(e) => setExportFormat(e.target.value)}
+              className="px-4 py-2 border border-gray-300 rounded bg-white text-black dark:bg-gray-800 dark:text-white"
+            >
+              <option value="json">Exportar como JSON</option>
+              <option value="csv">Exportar como CSV</option>
+            </select>
+            <button
+              onClick={handleExport}
+              className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700"
+            >
+              Exportar
+            </button>
+          </div>
+
           <button
             onClick={toggleDarkMode}
             className="p-2 rounded bg-gray-800 text-white dark:bg-yellow-400 dark:text-black"
@@ -60,7 +108,9 @@ function App() {
             ) : (
               <MoonIcon className="h-6 w-6" />
             )}
-          </button> 
+          </button>
+          
+ 
         </div>
         <SearchBar query={query} setQuery={setQuery} />
         <FilterBar
